@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import * as readline from 'readline';
 import { McpRequest, McpResponse } from '../../types/mcp.js';
 import { mcpServer } from '../server.js';
@@ -38,7 +39,7 @@ export class StdioTransport {
         console.log(JSON.stringify(response));
       } catch (error) {
         logger.error({ error, line }, 'Error processing stdio MCP request');
-        
+
         const errorResponse: McpResponse = {
           jsonrpc: '2.0',
           id: null,
@@ -47,7 +48,7 @@ export class StdioTransport {
             message: error instanceof Error ? error.message : 'Parse error',
           },
         };
-        
+
         console.log(JSON.stringify(errorResponse));
       }
     });
@@ -66,3 +67,9 @@ export class StdioTransport {
   }
 }
 
+// Start the stdio transport when run as a script
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const apiKey = process.env.API_KEY;
+  const transport = new StdioTransport(apiKey);
+  transport.start();
+}

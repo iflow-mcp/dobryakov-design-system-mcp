@@ -1,9 +1,12 @@
 {
-  "name": "design-system-analyzer",
+  "name": "@iflow-mcp/dobryakov-design-system-analyzer",
   "version": "1.0.0",
   "description": "A Node.js/TypeScript microservice that extracts design systems from websites using Playwright automation and provides an MCP interface for Cursor IDE integration",
   "main": "dist/server.js",
   "type": "module",
+  "bin": {
+    "iflow-mcp_dobryakov-design-system-analyzer": "./dist/src/mcp/transport/stdio-transport.js"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/src/server.js",
@@ -58,4 +61,3 @@
     "@types/supertest": "^6.0.2"
   }
 }
-

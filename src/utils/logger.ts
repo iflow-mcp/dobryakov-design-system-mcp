@@ -21,7 +21,6 @@ export const logger = pino({
     },
   },
   timestamp: pino.stdTimeFunctions.isoTime,
-});
+}, process.stderr);
 
 export default logger;
-
