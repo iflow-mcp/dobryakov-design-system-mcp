@@ -16,7 +16,7 @@ export class StdioTransport {
     this.apiKey = apiKey || process.env.API_KEY;
     this.rl = readline.createInterface({
       input: process.stdin,
-      output: process.stdout,
+      output: process.stderr, // Changed from process.stdout to avoid interfering with JSON-RPC responses
       terminal: false,
     });
   }

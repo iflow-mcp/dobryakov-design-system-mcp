@@ -1,0 +1,1 @@
+{"serverConfig": {"mcpServers": {"dobryakov-design-system-analyzer": {"command": "npx", "args": ["-y", "@iflow-mcp/dobryakov-design-system-analyzer"], "values": {}}}}}
